@@ -1,5 +1,6 @@
 package com.imdb.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -18,7 +19,12 @@ public class ImdbHomePage {
 			return false;
 		}
 		public void searchMovie(String movieName) {
+			WebElement searchTxt = driver.findElement(By.name("q"));
+			searchTxt.clear();
+			searchTxt.sendKeys(movieName);
 			
+			WebElement searchBtn = driver.findElement(By.id("navbar-submit-button"));
+			searchBtn.click();						
 		}
 
 }
